@@ -22,17 +22,17 @@ class Game:
         while self.player.is_alive() and self.computer.is_alive():
             if current_turn % 2 == 0:
                 self.player.attack(self.computer)
-                print(f"{self.player.name} атаковал! У {self.computer.name} осталось {self.computer.health} здоровья")
+                print(f"{self.player.name} атаковал! У {self.computer.name} осталось {max(0, self.computer.health)} здоровья")
             else:
                 self.computer.attack(self.player)
-                print(f"{self.computer.name} атаковал! У {self.player.name} осталось {self.player.health} здоровья")
+                print(f"{self.computer.name} атаковал! У {self.player.name} осталось {max(0, self.player.health)} здоровья")
             current_turn += 1
 
         winner = self.player.name if self.player.is_alive() else self.computer.name
         print(f"\nПобедитель: {winner}!")
 
+
 if __name__ == "__main__":
     name = input("Введите имя вашего героя: ")
     game = Game(name)
     game.start()
-
