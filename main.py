@@ -30,3 +30,9 @@ class Game:
 
         winner = self.player.name if self.player.is_alive() else self.computer.name
         print(f"\nПобедитель: {winner}!")
+
+if __name__ == "__main__":
+    name = input("Введите имя вашего героя: ")
+    game = Game(name)
+    game.start()
+
